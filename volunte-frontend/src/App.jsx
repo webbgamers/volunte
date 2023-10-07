@@ -4,13 +4,46 @@ import './App.css'
 
 
 function App() {
+
+  // Variables
   const [signedIn, setSignedIn] = useState(false)
   const [needLogin, setNeedLogin] = useState(true)
   const [needRegister, setNeedRegister] = useState(false)
-  const [b, setB] = useState(2)
 
   var page;
 
+  /***********
+  Changing states
+  ***********/
+  // Logs in
+  function Login() {
+    setSignedIn(true);
+    setNeedLogin(false);
+  }
+
+  // Registers
+  function Register() {
+    setSignedIn(true);
+    setNeedRegister(false);
+  }
+
+  // Login toggle
+  function LoginRegisterSwap() {
+    
+    if (!needLogin) {
+      setNeedLogin(true);
+      setNeedRegister(false);
+    } else {
+      setNeedLogin(false);
+      setNeedRegister(true);
+    }
+  }
+
+  /***********
+  Pages
+  ***********/
+
+  // Login page
   function LoginForm() {
     return (
       <>
@@ -35,11 +68,7 @@ function App() {
     )
   }
 
-  function Login() {
-    setSignedIn(true);
-    setNeedLogin(false);
-  }
-
+  // Register page
   function RegisterForm() {
     return (
       <>
@@ -83,29 +112,6 @@ function App() {
     )
   }
 
-  function Register() {
-    setSignedIn(true);
-    setNeedRegister(false);
-  }
-
-  function LoginRegisterSwap() {
-    
-    setB(6);
-    if (!needLogin) {
-    alert('!needLogin');
-
-      setNeedLogin(true);
-      setNeedRegister(false);
-      setB(4);
-    } else {
-    alert('needLogin');
-
-      setNeedLogin(false);
-      setNeedRegister(true);
-      setB(5);
-    }
-  }
-
   if (!signedIn && needLogin) {
     page = <LoginForm />
   } else if (!signedIn && needRegister) {
@@ -117,7 +123,6 @@ function App() {
       <button onClick={LoginRegisterSwap}>Swap</button>
       {page}
       {needLogin}
-      {b}
     </>
   )
 }
