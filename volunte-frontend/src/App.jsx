@@ -10,6 +10,7 @@ function App() {
   const [needLogin, setNeedLogin] = useState(true)
   const [needRegister, setNeedRegister] = useState(false)
 
+  var internalPage = "eventsList"
   var page;
 
   /***********
@@ -124,10 +125,65 @@ function App() {
     )
   }
 
+  // Events page
+  function EventsList() {
+    return (
+      <>
+        <h1>Upcoming Events</h1>
+
+        <div>
+          List of events goes here
+        </div>
+      </>
+    )
+  }
+
+  // Events page
+  function EventInfo() {
+    return (
+      <>
+        <h1>Upcoming Events</h1>
+
+        <div>
+          List of events goes here
+        </div>
+      </>
+    )
+  }
+
+  // Events page
+  function userInfo() {
+    return (
+      <>
+        <h1>Upcoming Events</h1>
+
+        <div>
+          List of events goes here
+        </div>
+      </>
+    )
+  }
+
+  // Page decider
   if (!signedIn && needLogin) {
     page = <LoginForm />
   } else if (!signedIn && needRegister) {
     page = <RegisterForm />
+  } else {
+    switch (internalPage) {
+      case "eventsList":
+        page = <EventsList />
+        break;
+      case "eventInfo":
+        page = <EventInfo />
+        break;
+      case "userInfo":
+        page = <userInfo />
+        break;
+      default:
+        page = <LoginForm />
+        break;
+    }
   }
 
   return (
