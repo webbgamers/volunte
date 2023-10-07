@@ -4,11 +4,12 @@ import './App.css'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [signedIn, setSignedIn] = useState(false)
+  const [needLogin, setNeedLogin] = useState(true)
+  const [needRegister, setNeedRegister] = useState(false)
+  const [b, setB] = useState(2)
 
   var page;
-  var signedIn = false, needLogin = true, needRegister = false;
-  var b = 2;
 
   function LoginForm() {
     return (
@@ -35,8 +36,8 @@ function App() {
   }
 
   function Login() {
-    signedIn = true;
-    needLogin = false;
+    setSignedIn(true);
+    setNeedLogin(false);
   }
 
   function RegisterForm() {
@@ -83,25 +84,25 @@ function App() {
   }
 
   function Register() {
-    signedIn = true;
-    needRegister = false;
+    setSignedIn(true);
+    setNeedRegister(false);
   }
 
   function LoginRegisterSwap() {
     
-    b = 6;
+    setB(6);
     if (!needLogin) {
     alert('!needLogin');
 
-      needLogin = true;
-      needRegister = false;
-      b = 4;
+      setNeedLogin(true);
+      setNeedRegister(false);
+      setB(4);
     } else {
     alert('needLogin');
 
-      needLogin = false;
-      needRegister = true;
-      b = 5;
+      setNeedLogin(false);
+      setNeedRegister(true);
+      setB(5);
     }
   }
 
