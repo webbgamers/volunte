@@ -12,8 +12,7 @@ function App() {
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [first, setFirst] = useState('')
-  const [last, setLast] = useState('')
+  const [name, setName] = useState('')
   const [ID, setID] = useState('')
 
   var internalPage = "eventsList"
@@ -55,7 +54,7 @@ function App() {
     const [usernameT, setUsernameT] = useState('')
     const [passwordT, setPasswordT] = useState('')
 
-    function LoginButton(){
+    function LoginButton() {
       setUsername(usernameT);
       setPassword(passwordT);
       Login();
@@ -96,6 +95,12 @@ function App() {
 
   // Register page
   function RegisterForm() {
+
+
+    const [usernameT, setUsernameT] = useState('')
+    const [passwordT, setPasswordT] = useState('')
+    const [nameT, setNameT] = useState('')
+
     return (
       <>
         <h1>Volunte</h1>
@@ -107,32 +112,26 @@ function App() {
           <br />
           <br />
 
-          First name:
-          <input name="First name" />
+          <label>
+            Name:
+            <input value={nameT} onChange={e => setNameT(e.target.value)} />
+          </label>
 
           <br />
           <br />
 
-          Last name:
-          <input name="Last name" />
+          <label>
+            Username:
+            <input value={usernameT} onChange={e => setUsernameT(e.target.value)} />
+          </label>
 
           <br />
           <br />
 
-          Username:
-          <input name="Username" />
-
-          <br />
-          <br />
-
-          Password:
-          <input name="Password" />
-
-          <br />
-          <br />
-
-          Re-enter Password:
-          <input name="Password" />
+          <label>
+            Password:
+            <input value={passwordT} onChange={e => setPasswordT(e.target.value)} />
+          </label>
         </div>
 
         <br />
