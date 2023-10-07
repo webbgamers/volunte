@@ -62,33 +62,37 @@ function App() {
 
     return (
       <>
-        <h1>Volunte</h1>
+        <section className='container '>
+          <h1 className="">Volunte</h1>
 
-        <div>
+          <div className="grid grid-flow-row justify-stretch p-4">
 
-          <button onClick={LoginRegisterSwap}>Go to register</button>
+            
+
+            <br />
+            <br />
+
+            <label className="flex flex-row space-x-3">
+              <div >Username:</div>
+              <input value={usernameT} onChange={e => setUsernameT(e.target.value)} />
+            </label>
+
+            <br />
+            <br />
+
+            <label className='flex flex-row space-x-3'>
+              <div>Password:</div>
+              <input value={passwordT} onChange={e => setPasswordT(e.target.value)} />
+            </label>
+          </div>
 
           <br />
           <br />
-
-          <label>
-            Username:
-            <input value={usernameT} onChange={e => setUsernameT(e.target.value)} />
-          </label>
-
-          <br />
-          <br />
-
-          <label>
-            Password:
-            <input value={passwordT} onChange={e => setPasswordT(e.target.value)} />
-          </label>
-        </div>
-
-        <br />
-        <br />
-
-        <button type="submit" onClick={LoginButton}>Log in</button>
+          <div className='flex flex-row '>
+            <button type="submit" onClick={LoginButton}>Log in</button>
+            <button onClick={LoginRegisterSwap}>Go to register</button>
+          </div>
+        </section>
       </>
     )
   }
