@@ -10,6 +10,12 @@ function App() {
   const [needLogin, setNeedLogin] = useState(true)
   const [needRegister, setNeedRegister] = useState(false)
 
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [first, setFirst] = useState('')
+  const [last, setLast] = useState('')
+  const [ID, setID] = useState('')
+
   var internalPage = "eventsList"
   var page;
 
@@ -44,8 +50,17 @@ function App() {
   Pages
   ***********/
 
-  // Login page
+  // Login pa
   function LoginForm() {
+    const [usernameT, setUsernameT] = useState('')
+    const [passwordT, setPasswordT] = useState('')
+
+    function LoginButton(){
+      setUsername(usernameT);
+      setPassword(passwordT);
+      Login;
+    }
+
     return (
       <>
         <h1>Volunte</h1>
@@ -57,21 +72,24 @@ function App() {
           <br />
           <br />
 
-
-          Username:
-          <input name="Username" />
+          <label>
+            Username:
+            <input value={usernameT} onChange={e => setUsernameT(e.target.value)} />
+          </label>
 
           <br />
           <br />
 
-          Password:
-          <input name="Password" />
+          <label>
+            Password:
+            <input value={passwordT} onChange={e => setPasswordT(e.target.value)} />
+          </label>
         </div>
 
         <br />
         <br />
 
-        <button type="submit" onClick={Login}>Log in</button>
+        <button type="submit" onClick={LoginButton}>Log in</button>
       </>
     )
   }
@@ -133,6 +151,12 @@ function App() {
 
         <div>
           List of events goes here
+          <br />
+          {username}
+          <br />
+          {password}
+          <br />
+          What
         </div>
       </>
     )
