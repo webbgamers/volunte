@@ -29,7 +29,7 @@ function App() {
 
   // Login toggle
   function LoginRegisterSwap() {
-    
+
     if (!needLogin) {
       setNeedLogin(true);
       setNeedRegister(false);
@@ -50,6 +50,13 @@ function App() {
         <h1>Volunte</h1>
 
         <div>
+
+          <button onClick={LoginRegisterSwap}>Go to register</button>
+
+          <br />
+          <br />
+
+
           Username:
           <input name="Username" />
 
@@ -75,6 +82,11 @@ function App() {
         <h1>Volunte</h1>
 
         <div>
+
+          <button onClick={LoginRegisterSwap}>Go to login</button>
+
+          <br />
+          <br />
 
           First name:
           <input name="First name" />
@@ -120,9 +132,7 @@ function App() {
 
   return (
     <>
-      <button onClick={LoginRegisterSwap}>Swap</button>
       {page}
-      {needLogin}
     </>
   )
 }
