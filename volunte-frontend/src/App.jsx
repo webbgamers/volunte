@@ -58,7 +58,7 @@ function App() {
     function LoginButton(){
       setUsername(usernameT);
       setPassword(passwordT);
-      Login;
+      Login();
     }
 
     return (
@@ -166,10 +166,10 @@ function App() {
   function EventInfo() {
     return (
       <>
-        <h1>Upcoming Events</h1>
+        <h1>Event info</h1>
 
         <div>
-          List of events goes here
+          Event info goes here
         </div>
       </>
     )
@@ -179,10 +179,10 @@ function App() {
   function userInfo() {
     return (
       <>
-        <h1>Upcoming Events</h1>
+        <h1>User Info</h1>
 
         <div>
-          List of events goes here
+          User info goes here
         </div>
       </>
     )
