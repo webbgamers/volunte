@@ -163,7 +163,7 @@ function App() {
   function EventsList() {
 
     const [dataT, setDataT] = useState('')
-    $.get("/eventsList", function (data) { setDataT(data) }, "json");
+    $.get("https://volunte-api-3ehogo776a-uc.a.run.app/events", function (data) { setDataT(data) }, "json");
 
     const listOfEvents = () => {
       const rows = dataT.map((event, index) => (
