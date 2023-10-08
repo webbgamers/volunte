@@ -63,8 +63,8 @@ function App() {
     return (
       <>
         <section className='h-full container flex flex-col justify-center mx-auto space-y-10'>
-          <h1 className='text-5xl'>Volunté</h1>
-
+          <h1 className='text-5xl text-red'>Volunté</h1>
+          
           <div className="flex flex-col py-4 items-stretch space-y-7 mx-auto text-xl">
             <label className="flex flex-row place-content-between space-x-2">
               <div >Username:</div>
@@ -77,16 +77,16 @@ function App() {
           </div>
 
           <div className='flex flex-row space-x-4 text-xl'>
-              <button className='p-3 w-1/2 border-2 rounded-full' type="submit" onClick={LoginButton}>
+              <button className='p-3 w-1/2 border-2 rounded-full hover:bg-light hover:text-eerieBlack' type="submit" onClick={LoginButton}>
                 <div className=''>
                   Log in
                 </div>
               </button>
-            
-            <div className='p-3 w-1/2'>
-              <button onClick={LoginRegisterSwap}>Register</button>
-            </div>
-            
+              <button className='p-3 w-1/2 border-2 rounded-full hover:bg-light hover:text-eerieBlack' type="submit" onClick={LoginRegisterSwap}>
+                <div className=''>
+                  Register
+                </div>
+              </button>
           </div>
         </section>
       </>
