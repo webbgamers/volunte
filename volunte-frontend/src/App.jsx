@@ -64,15 +64,15 @@ function App() {
       <>
         <section className='h-full container flex flex-col justify-center mx-auto space-y-10'>
           <h1 className='text-5xl text-red'>Volunté</h1>
-          
+
           <div className="flex flex-col py-4 items-stretch space-y-7 mx-auto text-xl">
-            <label className="flex flex-row place-content-between space-x-2">
-              <div >Username:</div>
-              <input value={usernameT} onChange={e => setUsernameT(e.target.value)} />
+            <label className="flex flex-row place-content-between items-center space-x-2">
+              <div>Username:</div>
+              <input className='p-2' value={usernameT} onChange={e => setUsernameT(e.target.value)} />
             </label>
-            <label className='flex flex-row place-content-between space-x-2'>
+            <label className='flex flex-row place-content-between items-center space-x-2'>
               <div>Password:</div>
-              <input value={passwordT} onChange={e => setPasswordT(e.target.value)} />
+              <input className='p-2' value={passwordT} onChange={e => setPasswordT(e.target.value)} />
             </label>
           </div>
 
