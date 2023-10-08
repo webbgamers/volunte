@@ -63,27 +63,27 @@ function App() {
     return (
       <>
         <section className='h-full container flex flex-col justify-center mx-auto space-y-10'>
-          <h1 className='text-5xl text-red'>Volunté</h1>
+          <h1 className='text-6xl'>Volunté</h1>
 
-          <div className="flex flex-col py-4 items-stretch space-y-7 mx-auto text-xl">
+          <div className="flex flex-col py-4 items-stretch space-y-7 mx-auto text-2xl">
             <label className="flex flex-row place-content-between items-center space-x-2">
               <div>Username:</div>
-              <input className='p-2' value={usernameT} onChange={e => setUsernameT(e.target.value)} />
+              <input className='p-2 rounded-md'type='text' value={usernameT} onChange={e => setUsernameT(e.target.value)} />
             </label>
             <label className='flex flex-row place-content-between items-center space-x-2'>
               <div>Password:</div>
-              <input className='p-2' value={passwordT} onChange={e => setPasswordT(e.target.value)} />
+              <input className='p-2 rounded-md' type="password" value={passwordT} onChange={e => setPasswordT(e.target.value)} />
             </label>
           </div>
 
-          <div className='flex flex-row space-x-4 text-xl'>
-              <button className='p-3 w-1/2 border-2 rounded-full hover:bg-light hover:text-eerieBlack' type="submit" onClick={LoginButton}>
-                <div className=''>
+          <div className='flex flex-row space-x-4 text-2xl'>
+              <button className='p-4 w-1/2 border-2 rounded-full ease-in-out duration-300 hover:bg-light hover:text-eerieBlack' type="submit" onClick={LoginButton}>
+                <div>
                   Log in
                 </div>
               </button>
-              <button className='p-3 w-1/2 border-2 rounded-full hover:bg-light hover:text-eerieBlack' type="submit" onClick={LoginRegisterSwap}>
-                <div className=''>
+              <button className='p-4 w-1/2 border-2 rounded-full ease-in-out duration-300 hover:bg-light hover:text-eerieBlack' type="submit" onClick={LoginRegisterSwap}>
+                <div>
                   Register
                 </div>
               </button>
@@ -103,41 +103,37 @@ function App() {
 
     return (
       <>
-        <h1>Volunte</h1>
+        <section className='h-full container flex flex-col justify-center mx-auto space-y-10'>
+          <h1 className='text-6xl'>Volunté</h1>
 
-        <div>
+          <div className="flex flex-col py-4 items-stretch space-y-7 mx-auto text-2xl">
+            <label className="flex flex-row place-content-between items-center space-x-2">
+              <div>Name:</div>
+              <input className='p-2 rounded-md'type='text' value={nameT} onChange={e => setNameT(e.target.value)} />
+            </label>
+            <label className='flex flex-row place-content-between items-center space-x-2'>
+              <div>Username:</div>
+              <input className='p-2 rounded-md' type="text" value={usernameT} onChange={e => setUsernameT(e.target.value)} />
+            </label>
+            <label className='flex flex-row place-content-between items-center space-x-2'>
+              <div>Password:</div>
+              <input className='p-2 rounded-md' type="password" value={passwordT} onChange={e => setPasswordT(e.target.value)} />
+            </label>
+          </div>
 
-          <button onClick={LoginRegisterSwap}>Go to login</button>
-
-          <br />
-          <br />
-
-          <label>
-            Name:
-            <input value={nameT} onChange={e => setNameT(e.target.value)} />
-          </label>
-
-          <br />
-          <br />
-
-          <label>
-            Username:
-            <input value={usernameT} onChange={e => setUsernameT(e.target.value)} />
-          </label>
-
-          <br />
-          <br />
-
-          <label>
-            Password:
-            <input value={passwordT} onChange={e => setPasswordT(e.target.value)} />
-          </label>
-        </div>
-
-        <br />
-        <br />
-
-        <button type="submit" onClick={Register}>Register</button>
+          <div className='flex flex-row space-x-4 text-2xl'>
+              <button className='p-4 w-1/2 border-2 rounded-full ease-in-out duration-300 hover:bg-light hover:text-eerieBlack' type="submit" onClick={LoginRegisterSwap}>
+                <div>
+                  Log in
+                </div>
+              </button>
+              <button className='p-4 w-1/2 border-2 rounded-full ease-in-out duration-300 hover:bg-light hover:text-eerieBlack' type="submit" onClick={Register}>
+                <div>
+                  Register
+                </div>
+              </button>
+          </div>
+        </section>
       </>
     )
   }
