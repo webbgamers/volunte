@@ -162,7 +162,7 @@ function App() {
   // Events page
   function EventsList() {
 
-    const [dataT, setDataT] = useState('')
+    const [dataT, setDataT] = useState([])
 
     useEffect(() => {
       fetch("https://volunte-api-3ehogo776a-uc.a.run.app/events")
@@ -178,7 +178,7 @@ function App() {
           className="card col-5 text-white bg-dark mb-4"
           style={{ maxWidth: "rem" }}
         >
-          <div className="card-header card border-danger mb-3">{event.name}</div>
+          <div className="card-header card border-danger mb-2">{event.name}</div>
           <div className="card-body">
             {/*<p className="card-text">Description: {event.description}</p>
             <p className="card-title">Time / Date: {event.timeRange}</p>*/}
@@ -191,11 +191,13 @@ function App() {
 
     return (
       <>
-        <h1>Upcoming Events</h1>
+        <section className='h-full container flex flex-col justify-center mx-auto space-y-10'>
+          <h1 className='text-6xl'>Upcoming Events</h1>
 
-        <div>
-          {listOfEvents}
-        </div>
+          <div className='text-xl font-bold bg-moon rounded-lg text-eerieBlack border-2 '>
+            {listOfEvents()}
+          </div>
+        </section>
       </>
     )
   }
