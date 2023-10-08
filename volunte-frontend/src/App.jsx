@@ -23,26 +23,28 @@ function App() {
   ***********/
   // Logs in
   function Login() {
+    /*
     $.get("/login", { email: username, password: password }, function (data, status) {
       if (status == "success") {
         setID(data.id)
-        setName(data.name);
+        setName(data.name);*/
         setSignedIn(true);
         setNeedLogin(false);
-        return (<p>The user ID is {ID}</p>)
+        /* (<p>The user ID is {ID}</p>)
       }
-    }, "json");
+    }, "json");*/
   }
 
   // Registers
   function Register() {
+    /*
     $.get("/register", { email: username, name: name, password: password }, function (data, status) {
       if (status == "success") {
-        setID(data.id)
+        setID(data.id)*/
+        setSignedIn(true);
+        setNeedRegister(false);/*
       }
-    }, "json");
-    setSignedIn(true);
-    setNeedRegister(false);
+    }, "json");*/
   }
 
   // Login toggle
