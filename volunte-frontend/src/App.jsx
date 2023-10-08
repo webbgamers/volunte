@@ -144,18 +144,34 @@ function App() {
 
   // Events page
   function EventsList() {
+
+    const [dataT, setDataT] = useState('')
+    $.get("/eventsList", function(data){ setDataT(data) },"json");
+
+    const listOfEvents = () => {
+      const rows = dataT.map((event, index) => (
+        <div
+          key={index}
+          className="card col-5 text-white bg-dark mb-4"
+          style={{ maxWidth: "rem" }}
+        >
+          <div className="card-header card border-danger mb-3">{event.eventName}</div>
+          <div className="card-body">
+            <p className="card-text">Description : {event.description}</p>
+            <p className="card-title">Time / Date : {event.timeRange}</p>
+            <p className="card-text">Location : {event.location}</p>
+          </div>
+        </div>
+      ));
+      return rows;
+    };
+
     return (
       <>
         <h1>Upcoming Events</h1>
 
         <div>
-          List of events goes here
-          <br />
-          {username}
-          <br />
-          {password}
-          <br />
-          What
+          {listOfEvents}
         </div>
       </>
     )
