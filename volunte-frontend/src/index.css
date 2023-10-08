@@ -1,6 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-color: #222222;
+  color: #E2EAF4;
+  display: flex;
+  height: 100vh;
+}
+
+input {
+  background-color: #E2EAF4;
+  color: #222222;
+}
 /*
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

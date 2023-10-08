@@ -62,23 +62,31 @@ function App() {
 
     return (
       <>
-        <section className='container flex-col mx-auto items-center'>
-          <h1 className='text-4xl'>Volunté</h1>
+        <section className='h-full container flex flex-col justify-center mx-auto space-y-10'>
+          <h1 className='text-5xl'>Volunté</h1>
 
-          <div className="flex flex-col p-4 items-center">
-            <label className="flex flex-row space-x-3">
+          <div className="flex flex-col py-4 items-stretch space-y-7 mx-auto text-xl">
+            <label className="flex flex-row place-content-between space-x-2">
               <div >Username:</div>
               <input value={usernameT} onChange={e => setUsernameT(e.target.value)} />
             </label>
-            <label className='flex flex-row space-x-3'>
+            <label className='flex flex-row place-content-between space-x-2'>
               <div>Password:</div>
               <input value={passwordT} onChange={e => setPasswordT(e.target.value)} />
             </label>
           </div>
 
-          <div className='flex-row space-x-4'>
-            <button type="submit" onClick={LoginButton}>Log in</button>
-            <button onClick={LoginRegisterSwap}>Register</button>
+          <div className='flex flex-row space-x-4 text-xl'>
+              <button className='p-3 w-1/2 border-2 rounded-full' type="submit" onClick={LoginButton}>
+                <div className=''>
+                  Log in
+                </div>
+              </button>
+            
+            <div className='p-3 w-1/2'>
+              <button onClick={LoginRegisterSwap}>Register</button>
+            </div>
+            
           </div>
         </section>
       </>
