@@ -23,14 +23,28 @@ function App() {
   ***********/
   // Logs in
   function Login() {
-    setSignedIn(true);
-    setNeedLogin(false);
+    /*
+    $.get("/login", { email: username, password: password }, function (data, status) {
+      if (status == "success") {
+        setID(data.id)
+        setName(data.name);*/
+        setSignedIn(true);
+        setNeedLogin(false);
+        /* (<p>The user ID is {ID}</p>)
+      }
+    }, "json");*/
   }
 
   // Registers
   function Register() {
-    setSignedIn(true);
-    setNeedRegister(false);
+    /*
+    $.get("/register", { email: username, name: name, password: password }, function (data, status) {
+      if (status == "success") {
+        setID(data.id)*/
+        setSignedIn(true);
+        setNeedRegister(false);/*
+      }
+    }, "json");*/
   }
 
   // Login toggle
@@ -68,7 +82,7 @@ function App() {
           <div className="flex flex-col py-4 items-stretch space-y-7 mx-auto text-2xl">
             <label className="flex flex-row place-content-between items-center space-x-2">
               <div>Username:</div>
-              <input className='p-2 rounded-md'type='text' value={usernameT} onChange={e => setUsernameT(e.target.value)} />
+              <input className='p-2 rounded-md' type='text' value={usernameT} onChange={e => setUsernameT(e.target.value)} />
             </label>
             <label className='flex flex-row place-content-between items-center space-x-2'>
               <div>Password:</div>
@@ -77,16 +91,16 @@ function App() {
           </div>
 
           <div className='flex flex-row space-x-4 text-2xl'>
-              <button className='p-4 w-1/2 border-2 rounded-full ease-in-out duration-300 hover:bg-light hover:text-eerieBlack' type="submit" onClick={LoginButton}>
-                <div>
-                  Log in
-                </div>
-              </button>
-              <button className='p-4 w-1/2 border-2 rounded-full ease-in-out duration-300 hover:bg-light hover:text-eerieBlack' type="submit" onClick={LoginRegisterSwap}>
-                <div>
-                  Register
-                </div>
-              </button>
+            <button className='p-4 w-1/2 border-2 rounded-full ease-in-out duration-300 hover:bg-light hover:text-eerieBlack' type="submit" onClick={LoginButton}>
+              <div>
+                Log in
+              </div>
+            </button>
+            <button className='p-4 w-1/2 border-2 rounded-full ease-in-out duration-300 hover:bg-light hover:text-eerieBlack' type="submit" onClick={LoginRegisterSwap}>
+              <div>
+                Register
+              </div>
+            </button>
           </div>
         </section>
       </>
@@ -101,6 +115,13 @@ function App() {
     const [passwordT, setPasswordT] = useState('')
     const [nameT, setNameT] = useState('')
 
+    function RegisterButton() {
+      setUsername(usernameT);
+      setPassword(passwordT);
+      setName(nameT);
+      Register();
+    }
+
     return (
       <>
         <section className='h-full container flex flex-col justify-center mx-auto space-y-10'>
@@ -109,7 +130,7 @@ function App() {
           <div className="flex flex-col py-4 items-stretch space-y-7 mx-auto text-2xl">
             <label className="flex flex-row place-content-between items-center space-x-2">
               <div>Name:</div>
-              <input className='p-2 rounded-md'type='text' value={nameT} onChange={e => setNameT(e.target.value)} />
+              <input className='p-2 rounded-md' type='text' value={nameT} onChange={e => setNameT(e.target.value)} />
             </label>
             <label className='flex flex-row place-content-between items-center space-x-2'>
               <div>Username:</div>
@@ -122,16 +143,16 @@ function App() {
           </div>
 
           <div className='flex flex-row space-x-4 text-2xl'>
-              <button className='p-4 w-1/2 border-2 rounded-full ease-in-out duration-300 hover:bg-light hover:text-eerieBlack' type="submit" onClick={LoginRegisterSwap}>
-                <div>
-                  Log in
-                </div>
-              </button>
-              <button className='p-4 w-1/2 border-2 rounded-full ease-in-out duration-300 hover:bg-light hover:text-eerieBlack' type="submit" onClick={Register}>
-                <div>
-                  Register
-                </div>
-              </button>
+            <button className='p-4 w-1/2 border-2 rounded-full ease-in-out duration-300 hover:bg-light hover:text-eerieBlack' type="submit" onClick={LoginRegisterSwap}>
+              <div>
+                Log in
+              </div>
+            </button>
+            <button className='p-4 w-1/2 border-2 rounded-full ease-in-out duration-300 hover:bg-light hover:text-eerieBlack' type="submit" onClick={RegisterButton}>
+              <div>
+                Register
+              </div>
+            </button>
           </div>
         </section>
       </>
@@ -142,7 +163,7 @@ function App() {
   function EventsList() {
 
     const [dataT, setDataT] = useState('')
-    $.get("/eventsList", function(data){ setDataT(data) },"json");
+    $.get("/eventsList", function (data) { setDataT(data) }, "json");
 
     const listOfEvents = () => {
       const rows = dataT.map((event, index) => (
