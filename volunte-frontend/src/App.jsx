@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 
@@ -24,7 +24,7 @@ function App() {
   // Logs in
   function Login() {
     /*
-    $.get("/login", { email: username, password: password }, function (data, status) {
+    $.get("https://volunte-api-3ehogo776a-uc.a.run.app/login", { email: username, password: password }, function (data, status) {
       if (status == "success") {
         setID(data.id)
         setName(data.name);*/
@@ -38,7 +38,7 @@ function App() {
   // Registers
   function Register() {
     /*
-    $.get("/register", { email: username, name: name, password: password }, function (data, status) {
+    $.get("https://volunte-api-3ehogo776a-uc.a.run.app/register", { email: username, name: name, password: password }, function (data, status) {
       if (status == "success") {
         setID(data.id)*/
         setSignedIn(true);
@@ -163,20 +163,26 @@ function App() {
   function EventsList() {
 
     const [dataT, setDataT] = useState('')
-    $.get("/eventsList", function (data) { setDataT(data) }, "json");
+
+    useEffect(() => {
+      fetch("https://volunte-api-3ehogo776a-uc.a.run.app/events")
+        .then(res => res.json())
+        .then(data => setDataT(data))
+    }, [])
+
 
     const listOfEvents = () => {
-      const rows = dataT.map((event, index) => (
+      const rows = dataT.map((event) => (
         <div
-          key={index}
+          key={event.id}
           className="card col-5 text-white bg-dark mb-4"
           style={{ maxWidth: "rem" }}
         >
-          <div className="card-header card border-danger mb-3">{event.eventName}</div>
+          <div className="card-header card border-danger mb-3">{event.name}</div>
           <div className="card-body">
-            <p className="card-text">Description : {event.description}</p>
-            <p className="card-title">Time / Date : {event.timeRange}</p>
-            <p className="card-text">Location : {event.location}</p>
+            {/*<p className="card-text">Description: {event.description}</p>
+            <p className="card-title">Time / Date: {event.timeRange}</p>*/}
+            <p className="card-text">Address: {event.address}</p>
           </div>
         </div>
       ));
